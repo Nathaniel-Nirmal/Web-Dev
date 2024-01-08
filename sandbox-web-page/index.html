@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">  
-        <meta name="author" content="Nathaniel Nirmal">
-        <meta name="description" content="Sandbox web page creation using HTML">
-        <title>My First Web Page</title>
-        <link rel="icon" href="html5.png" type="image/x-icon">
-        <link rel="stylesheet" href="main.css" type="text/css">
-    </head>
 
-    <body>
-        <h1>Welcome to Full Stack Development!</h1>   
-        <hr>
-        <nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nathaniel Nirmal">
+    <meta name="description" content="Sandbox web page creation using HTML">
+    <title>My First Web Page</title>
+    <link rel="icon" href="html5.png" type="image/x-icon">
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Full Stack Development!</h1>
+        <nav aria-label="primary-navigation">
             <ul>
                 <li>
                     <a href="#frontend">Frontend Development</a>
@@ -22,77 +23,92 @@
                 </li>
             </ul>
         </nav>
-        <hr>
+    </header>
 
-        <section id="frontend">
-            <h2>Frontend Development</h2>   
-            <p>Let's start with Frontend </p> 
+    <hr>
+    <main>
+        <article id="frontend">
+            <h2>Frontend Development</h2>
+            <p>Let's start with Frontend</p>
             <figure>
-                <img src="img/frontend.png" alt="Frontend development" title="Learning frontend dev" width="500" height="240">
-                <figcaption>
-                    Frontend representation
-                </figcaption>
+                <img src="img/frontend.png" alt="Frontend development" title="Learning frontend dev" width="500"
+                    height="240">
+                <figcaption>Frontend representation</figcaption>
             </figure>
 
+            <section>
+                <h3>Technologies to be familiar with</h3>
+                <p>The following are the tools needed:</p>
+                <img src="img/html-logo.png" alt="html5 logo" title="HTML5" width="225" height="225">
+                <figure>
+                    <figcaption>An example of HTML5 code</figcaption>
+                    <p>
+                        <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code>
+                    </p>
+                </figure>
+                <ol>
+                    <li>HTML is the <em>building blocks of web</em></li>
 
-            <h3>Technologies to be familiar with</h3>   
-            <p>The following are the tools needed:</p>
-            <img src="img/html-logo.png" alt="html5 logo" title="HTML5" width="225" height="225">
-            <figure>
-                <figcaption>
-                    An example of HTML5 code
-                </figcaption>
-                <p>
-                    <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code>
-                </p>
-            </figure>
-            <ol>
-                <li>HTML is the <em>building blocks of web</em></li> 
-            
-                <li><abbr title="Cascading Style Sheets"><a href="https://en.wikipedia.org/wiki/CSS">CSS</a></abbr> focusses on <em>style/presentation</em></li>
-                
-                <li>JavaScript is for the <strong>functionality</strong>.</li>
-            </ol>
-        </section>
+                    <li>
+                        <abbr title="Cascading Style Sheets"><a href="https://en.wikipedia.org/wiki/CSS">CSS</a></abbr>
+                        focusses on <em>style/presentation</em>
+                    </li>
+
+                    <li>JavaScript is for the <strong>functionality</strong>.</li>
+                </ol>
+            </section>
+        </article>
 
         <hr>
         <!--TODO: Complete the page-->
 
-        <section id="backend">
+        <article id="backend">
             <h2>Back end Development</h2>
-            <p>Guide for backend development</p> 
+            <p>Guide for backend development</p>
 
             <figure>
-                <img src="img/backend.png" alt="Backend development" title="Learning backend dev" width="500" height="235" loading="lazy">
-                <figcaption>
-                    Backend representation
-                </figcaption>
+                <img src="img/backend.png" alt="Backend development" title="Learning backend dev" width="500"
+                    height="235" loading="lazy">
+                <figcaption>Backend representation</figcaption>
             </figure>
 
+            <section>
+                <h3>Popular technologies to know</h3>
+                <dl>
+                    <dt>Java</dt>
+                    <dd>One of the popular languages and is highly scalable</dd>
 
-            <h3>Popular technologies to know</h3>
-            <dl>
-                <dt>Java</dt>
-                <dd>One of the popular languages and is highly scalable</dd>
-                
-                <dt>Python</dt>
-                <dd>Language for quicker development and efficient systems integration</dd>
+                    <dt>Python</dt>
+                    <dd>
+                        Language for quicker development and efficient systems integration
+                    </dd>
 
-                <dt>Node.js</dt>
-                <dd>Cross-platform runtime environment for executing JavaScript code outside a browser</dd>
-            </dl>
-        </section>
-        
+                    <dt>Node.js</dt>
+                    <dd>
+                        Cross-platform runtime environment for executing JavaScript code
+                        outside a browser
+                    </dd>
+                </dl>
+            </section>
+        </article>
+
         To contact the author of this Page
         <address>
             nathanielat@gmail.com <br>
             1 East Loop Road, New York <br>
             New York 10044 <br>
         </address>
-        
-        &lt;&lt;&lt; &copy; <a href="about.html">Nathaniel Nirmal</a> &gt;&gt;&gt;
+    </main>
+    <hr>
+    <footer>
+        <p>
+            &lt;&lt;&lt; &copy;
+            <a href="about.html">Nathaniel Nirmal</a> &gt;&gt;&gt;
+        </p>
         <p>
             <a href="#">Back to Top</a>
         </p>
-    </body>
+    </footer>
+</body>
+
 </html>
