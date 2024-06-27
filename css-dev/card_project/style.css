@@ -53,13 +53,18 @@ nav {
     justify-content: space-evenly;
 }
 
-nav a, nav a:visited {
+nav a:any-link {
     color: #000;
 }
 
-nav a:hover, a:focus {
+nav :is(a:hover,a:focus) {
     color: hsla(0, 0%, 20%, 0.6);
 }
+
+nav a:active {
+    color: red;
+}
+
 main {
     flex-grow: 1;
     display: flex;
@@ -101,6 +106,15 @@ footer {
     font-size: 2rem;
     margin: 1rem;
     text-align: center;
+}
+
+.card figcaption::after {
+    content: '\2B50';
+    display: block;
+}
+
+.card figcaption::first-letter {
+    font-size: 3rem;
 }
 
 /* || SMALL */
