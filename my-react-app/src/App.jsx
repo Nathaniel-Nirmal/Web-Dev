@@ -21,7 +21,7 @@ function App() {
     createdAt: '18:00',
   }, {
     id: 'todo2',
-    createdAt: '20:30',
+    createdAt: '20:35',
   }]);
 
   const reverseOrder = () => {
