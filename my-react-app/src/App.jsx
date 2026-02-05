@@ -1,46 +1,56 @@
 import './App.css'
 import { use, useState } from 'react'
+import React from "react";
 
-function App() {
-  const[score, setScore] = useState(10)
-  const[comment, setComment] = useState("")
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(Number(score) < 5 && comment.length<=10){
-      alert("Please explain why the experience was poor")
-      return;
-    }
-    console.log("Form Submitted")
-    setScore(10);
-    setComment("");
+function GoalForm(props){
+  const [formData, setFormData] = React.useState({goal: "", by: ""});
+
+  function changeHandler(e) {
+    setFormData({...formData, [e.target.name]: e.target.value});
   }
 
-  return (
-    <div className='App'>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <h2>Feedback Form</h2>
-          <div className='Field'>
-            <label>Score: {score}</label>
-            <input 
-              type="range" 
-              min="0" 
-              max="10" 
-              value={score} 
-              onChange={e => setScore(e.target.value)} 
-            />
-          </div>
-          <div className='Field'>
-            <label>Comment:</label>
-            <textarea value={comment} onChange={e => setComment(e.target.value)}/>
-          </div>
-          <button type='submit'>Submit</button>
-        </fieldset>
-      </form>
-    </div>
+  function submitHandler(e) {
+    e.preventDefault();
+    props.onAdd(formData)
+    setFormData({goal: "", by: ""})
+  };
 
-  )
+  return(
+    <>
+    <h1>My Little Lemon Goals</h1>
+    <form onSubmit={submitHandler}>
+      <input type="text" name="goal" placeholder="Goal" value={formData.goal} onChange={changeHandler} />
+      <input type="text" name="by" placeholder='By...' value={formData.by} onChange={changeHandler} />
+      <button>Submit Goal</button>
+    </form>
+    </>
+  );
 }
 
-export default App
+
+function ListOfGoals(props) {
+  return(
+    <ul>
+      {props.allGoals.map((g) => (
+        <li key={g.goal}>
+          <span>My goal is to {g.goal}, by {g.by}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+
+export default function App() {
+  const[allGoals, updateAllGoals] = React.useState([]);
+
+  function addGoal(goal) {updateAllGoals([...allGoals, goal]);}
+  return (
+    <div className='App'>
+      <GoalForm onAdd={addGoal} />
+      <ListOfGoals allGoals={allGoals} />
+    </div>
+
+  );
+}
