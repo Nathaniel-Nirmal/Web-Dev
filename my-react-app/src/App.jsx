@@ -1,55 +1,27 @@
-import './App.css'
-import { use, useState } from 'react'
 import React from "react";
 
+function App() {
+  const [user, setUser] = React.useState([]);
 
-function GoalForm(props){
-  const [formData, setFormData] = React.useState({goal: "", by: ""});
-
-  function changeHandler(e) {
-    setFormData({...formData, [e.target.name]: e.target.value});
+  const fetchData = () => {
+    fetch("https://randomuser.me/api/?results=1")
+    .then(response => response.json())
+    .then(data => setUser(data));
   }
 
-  function submitHandler(e) {
-    e.preventDefault();
-    props.onAdd(formData)
-    setFormData({goal: "", by: ""})
-  };
+  React.useEffect(() => {
+    fetchData();
+  }, []);
 
-  return(
-    <>
-    <h1>My Big Lemon Goals</h1>
-    <form onSubmit={submitHandler}>
-      <input type="text" name="goal" placeholder="Goal" value={formData.goal} onChange={changeHandler} />
-      <input type="text" name="by" placeholder='By...' value={formData.by} onChange={changeHandler} />
-      <button>Submit Goal</button>
-    </form>
-    </>
-  );
-}
-
-
-function ListOfGoals(props) {
-  return(
-    <ul>
-      {props.allGoals.map((g) => (
-        <li key={g.goal}>
-          <span>My goal is to {g.goal}, by {g.by}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-export default function App() {
-  const[allGoals, updateAllGoals] = React.useState([]);
-
-  function addGoal(goal) {updateAllGoals([...allGoals, goal]);}
-  return (
-    <div className='App'>
-      <GoalForm onAdd={addGoal} />
-      <ListOfGoals allGoals={allGoals} />
+  return Object.keys(user).length > 0 ? (
+    <div>
+      <h1>Data returned</h1>
+      <h2>First Name: {user.results[0].name.first}</h2>
+      <h2>Last Name: {user.results[0].name.last}</h2>
     </div>
-
+  ) : (
+    <h1>Data pending...</h1>
   );
 }
+
+export default App;
